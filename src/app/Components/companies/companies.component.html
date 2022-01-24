@@ -1,0 +1,47 @@
+<div class="container">
+
+  <table class="table table-dark table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Companies">
+        <td>
+          <app-company [company]="item"></app-company>
+        </td>
+        <td>{{item.fullAddress}}</td>
+        <td>
+          <button class="btn btn-warning bg-warning me-2" data-bs-toggle="modal" data-bs-target="#myModal"
+            [routerLink]="['update' , item.id]">update</button>
+          <button class="btn btn-primary bg-primary me-2" data-bs-toggle="modal" data-bs-target="#myModal"
+            [routerLink]="['details' , item.id]">Details</button>
+            <button class="btn btn-danger bg-danger me-2" (click)="deleteCompany(item.id);">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
+    [routerLink]="['create']">Create</button>
+  <!--<app-createcompany (CreateEvent)="PushToList($event)"></app-createcompany>
+        <app-updatecompany></app-updatecompany>-->
+  <!-- myModal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Company</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

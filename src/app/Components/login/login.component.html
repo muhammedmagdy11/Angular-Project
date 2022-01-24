@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+      <div class="col-md-6 shadow-lg">
+        <h1 class="display-4 text-center mt-2">Sign in</h1>
+          <div class="card px-5 py-5" id="form1">
+            <form (submit)="Login();">
+              <div class="form-data">
+                <div class="forms-inputs mb-4 w-100"> <span class="fw-bold">Email or username</span> <input autocomplete="off" type="text" class="w-100" name="userName" [(ngModel)]="user.userName" />
+                    <div class="invalid-feedback">A valid email is required!</div>
+                </div>
+                <div class="forms-inputs mb-4"> <span class="fw-bold">Password</span> <input autocomplete="off" type="password" class="w-100" name="password" [(ngModel)]="user.password"/>
+                    <div class="invalid-feedback">Password must be 8 character!</div>
+                </div>
+                <div class="mb-3"> <button type="submit" class="btn btn-dark w-100">Login</button> </div>
+            </div>
+            <div #validation class="text-danger d-none">
+invalid username or password
+            </div>
+            </form>
+          </div>
+      </div>
+  </div>
+</div>
