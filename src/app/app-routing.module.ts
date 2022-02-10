@@ -9,6 +9,8 @@ import { AuthGuard } from './Guards/auth.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 import { FormsComponent } from './Components/forms/forms.component';
+import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
+import { MessagesComponent } from './Components/messages/messages.component';
 
 const routes: Routes = [
   {path:'companies', component:CompaniesComponent, children:[
@@ -19,7 +21,10 @@ const routes: Routes = [
   {path:'employees', component:EmployeeComponent, canActivate:[AuthGuard]},
   {path:'login', component:LoginComponent},
   {path:'forbidden', component:ForbiddenComponent},
-  {path:'forms', component:FormsComponent}
+  {path:'forms', component:FormsComponent},
+  {path:'emails', component:ReactiveFormComponent},
+  {path:'messages', component:MessagesComponent}
+
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompaniesComponent } from './Components/companies/companies.component';
 import { EmployeeComponent } from './Components/employee/employee.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompanydetailsComponent } from './Components/companydetails/companydetails.component';
 import { CompanyComponent } from './Components/company/company.component';
 import { CreatecompanyComponent } from './Components/createcompany/createcompany.component';
@@ -14,6 +14,8 @@ import { UpdatecompanyComponent } from './Components/updatecompany/updatecompany
 import { LoginComponent } from './Components/login/login.component';
 import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 import { FormsComponent } from './Components/forms/forms.component';
+import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
+import { MessagesComponent } from './Components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { FormsComponent } from './Components/forms/forms.component';
     UpdatecompanyComponent,
     LoginComponent,
     ForbiddenComponent,
-    FormsComponent
+    FormsComponent,
+    ReactiveFormComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
