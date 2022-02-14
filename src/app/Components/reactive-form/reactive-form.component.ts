@@ -19,5 +19,6 @@ this.userForm=new FormGroup({
   }
   submit(){
 this.addMessage.emit(this.userForm);
+this.userForm.reset();
   }
 }

@@ -16,6 +16,7 @@ import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 import { FormsComponent } from './Components/forms/forms.component';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 import { MessagesComponent } from './Components/messages/messages.component';
+import { SendemailComponent } from './Components/sendemail/sendemail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MessagesComponent } from './Components/messages/messages.component';
     ForbiddenComponent,
     FormsComponent,
     ReactiveFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    SendemailComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { ForbiddenComponent } from './Components/forbidden/forbidden.component';
 import { FormsComponent } from './Components/forms/forms.component';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 import { MessagesComponent } from './Components/messages/messages.component';
+import { SendemailComponent } from './Components/sendemail/sendemail.component';
 
 const routes: Routes = [
   {path:'companies', component:CompaniesComponent, children:[
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path:'forbidden', component:ForbiddenComponent},
   {path:'forms', component:FormsComponent},
   {path:'emails', component:ReactiveFormComponent},
-  {path:'messages', component:MessagesComponent}
+  {path:'messages', component:MessagesComponent,children:[
+     {path:'SendEmail',component:SendemailComponent}
+  ]}
 
 ];
 
