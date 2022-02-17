@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmailModel } from '../../Models/EmailModel';
 import { Message } from '../../Models/Message';
 
@@ -12,16 +11,24 @@ import { Message } from '../../Models/Message';
 })
 export class SendemailComponent implements OnInit {
 
-  constructor(private router:Router,private renderer:Renderer2, @Inject(DOCUMENT) private document: Document) { }
+  constructor(private activatedroute:ActivatedRoute,
+    private router:Router)
+   {
+    this.message= new Message(history.state.id,history.state.subject,history.state.message);
+console.log(this.message);
+   }
   @ViewChild('closeModal',{read:ElementRef}) closeModal!: ElementRef;
   @ViewChild('emailsContainer',{read:ElementRef}) emailsContainer!: ElementRef;
   @ViewChild('emailInput',{read:ElementRef}) emailInput!: ElementRef;
+  Emails:string[]=[];
+ message!:Message;
 
 
-
-EmailModel:EmailModel={Emails:[], Message: new Message('','','')};
+EmailModel:EmailModel={Emails:this.Emails, Message: this.message};
   ngOnInit(): void {
-  }
+
+
+    }
   public onSave() {
     this.closeModal.nativeElement.click();
   }
@@ -32,8 +39,11 @@ EmailModel:EmailModel={Emails:[], Message: new Message('','','')};
     this.router.navigate(['/messages']));
   }
   AddEmail(){
-    const child = this.document.createElement('label');
-    child.innerHTML=this.emailInput.nativeElement.value;
-    this.renderer.appendChild(this.emailsContainer.nativeElement, child);
+    this.Emails.push(this.emailInput.nativeElement.value);
+    this.emailInput.nativeElement.value='';
+  }
+  DeleteEmail(email:string){
+    let index=this.Emails.findIndex(e=>e===email);
+    this.Emails.splice(index,1);
   }
 }
