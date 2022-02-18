@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../../Models/Message';
 import { FormGroup } from '@angular/forms';
 import { Guid } from 'src/app/Models/Guid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-messages',
@@ -10,7 +11,7 @@ import { Guid } from 'src/app/Models/Guid';
 })
 export class MessagesComponent implements OnInit {
 //@Input() Message!:Message;
-  constructor() { }
+  constructor(private router:Router) { }
 Messages:Message[]=[];
   ngOnInit(): void {
   }

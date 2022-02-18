@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <label>Subject</label>
-    <input type="text" class="form-control" placeholder="Subject" name="Subject" [(ngModel)]="message.Subject">
+    <input type="text" class="form-control" readonly placeholder="Subject" name="Subject" [(ngModel)]="message.Subject">
   </div>
   <div class="form-group">
     <label>Message</label>
@@ -29,6 +29,6 @@
 
     </textarea>
   </div>
-  <button type="submit" class="btn btn-outline-primary mt-2 mr-2" style="margin-right: 5px;">Apply</button>
+  <button type="submit" class="btn btn-outline-primary mt-2 mr-2" style="margin-right: 5px;">Send Email</button>
   <button type="button" #closeModal  class="btn btn-secondary mt-2 text-center" data-bs-dismiss="modal" (click)="navigate();">Cancel</button>
 </form>

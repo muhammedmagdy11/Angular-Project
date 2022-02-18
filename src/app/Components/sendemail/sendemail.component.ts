@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { EmailModel } from '../../Models/EmailModel';
 import { Message } from '../../Models/Message';
 
@@ -11,11 +12,10 @@ import { Message } from '../../Models/Message';
 })
 export class SendemailComponent implements OnInit {
 
-  constructor(private activatedroute:ActivatedRoute,
+  constructor(private activatedRoute:ActivatedRoute,
     private router:Router)
    {
-    this.message= new Message(history.state.id,history.state.subject,history.state.message);
-console.log(this.message);
+
    }
   @ViewChild('closeModal',{read:ElementRef}) closeModal!: ElementRef;
   @ViewChild('emailsContainer',{read:ElementRef}) emailsContainer!: ElementRef;
@@ -26,8 +26,13 @@ console.log(this.message);
 
 EmailModel:EmailModel={Emails:this.Emails, Message: this.message};
   ngOnInit(): void {
-
-
+    this.activatedRoute
+    .queryParams
+    .subscribe(params => {
+      // Defaults to 0 if no query param provided.
+      this.message=new Message(params['id'],params['Subject'],params['Message']);
+      // console.log(params['id'],params['Subject'],params['Message'])
+    });
     }
   public onSave() {
     this.closeModal.nativeElement.click();
