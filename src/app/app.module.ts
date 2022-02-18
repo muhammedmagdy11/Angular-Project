@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +17,7 @@ import { FormsComponent } from './Components/forms/forms.component';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { SendemailComponent } from './Components/sendemail/sendemail.component';
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,13 @@ import { SendemailComponent } from './Components/sendemail/sendemail.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

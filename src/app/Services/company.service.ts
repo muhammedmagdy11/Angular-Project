@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-const options={headers:new HttpHeaders({
-  authorization:"Bearer "+sessionStorage.getItem('token')
-})}
+// const options={headers:new HttpHeaders({
+//   authorization:"Bearer "+sessionStorage.getItem('token')
+// })}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,18 +17,18 @@ url:string='http://localhost:30411/api/companies';
 
    }
   getcompanies():Observable<Company[]>{
-   return this._http.get<Company[]>(this.url,options);
+   return this._http.get<Company[]>(this.url);
   }
   getcompany(id:string):Observable<UpdateCompany>{
-    return this._http.get<UpdateCompany>(`${this.url}/${id}`, options);
+    return this._http.get<UpdateCompany>(`${this.url}/${id}`);
    }
   createCompany(company:CreateCompany):Observable<Company>{
-    return this._http.post<Company>(this.url,company, options);
+    return this._http.post<Company>(this.url,company);
   }
 UpdateCompany(company:UpdateCompany):Observable<Company>{
-return this._http.put<Company>(this.url,company, options);
+return this._http.put<Company>(this.url,company);
 }
 Delete(id:string){
-  return this._http.delete(`${this.url}/${id}`, options);
+  return this._http.delete(`${this.url}/${id}`);
 }
 }
