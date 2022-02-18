@@ -1,0 +1,14 @@
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="submit();" class="w-50">
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" formControlName="subject" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="3" class="form-control" formControlName="message">
+        </textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2 mr-2">Save</button>
+    </form>
+</div>
