@@ -18,6 +18,8 @@ import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.
 import { MessagesComponent } from './Components/messages/messages.component';
 import { SendemailComponent } from './Components/sendemail/sendemail.component';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { CommonModule } from '@angular/common';
+import { EmployeesComponent } from './Components/Employees/Employees.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
     FormsComponent,
     ReactiveFormComponent,
     MessagesComponent,
-    SendemailComponent
+    SendemailComponent,
+    EmployeeComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

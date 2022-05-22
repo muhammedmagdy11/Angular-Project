@@ -12,6 +12,7 @@ import { FormsComponent } from './Components/forms/forms.component';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { SendemailComponent } from './Components/sendemail/sendemail.component';
+import { EmployeesComponent } from './Components/Employees/Employees.component';
 
 const routes: Routes = [
   {path:'companies', component:CompaniesComponent, children:[
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path:'update/:id', component:UpdatecompanyComponent},
     {path:'details/:id', component:CompanydetailsComponent},
     ]},
-  {path:'employees', component:EmployeeComponent, canActivate:[AuthGuard]},
+  {path:'employee', component:EmployeeComponent, canActivate:[AuthGuard]},
+  {path:'employees', component:EmployeesComponent},
   {path:'login', component:LoginComponent},
   {path:'forbidden', component:ForbiddenComponent},
   {path:'forms', component:FormsComponent},
