@@ -1,5 +1,6 @@
 <div class="container">
-
+  <p>Filtering by date range</p>
+  <input #Date1 type="date" value="2022-01-01" (change)="changeInput()"> - <input #Date2 type="date" value="2022-01-01" (change)="changeInput()">
   <table class="table table-dark table-striped mt-5">
     <thead>
       <tr>
@@ -9,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of Employees">
+      <tr *ngFor="let item of filteredEmployees">
         <td>
           {{item.firstName}}
         </td>

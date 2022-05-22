@@ -17,6 +17,8 @@ Members:FamilyMember[]=[];
 employee!:Employee;
 @ViewChild('MemberName',{read:ElementRef}) MemberName!: ElementRef;
 @ViewChild('MemberRelation',{read:ElementRef}) MemberRelation!: ElementRef;
+selecetdFile !: File;
+imagePreview !: string;
   constructor() { }
 
   submit(form:NgForm){
@@ -34,33 +36,15 @@ employee!:Employee;
     let index=this.Members.findIndex(e=>e===item);
     this.Members.splice(index,1);
   }
-  // get f(){
-  //   return this.myForm.controls;
-  // }
 
-  // onFileChange(event:any) {
-  //   const reader = new FileReader();
-
-  //   if(event.target.files && event.target.files.length) {
-  //     const [file] = event.target.files;
-  //     reader.readAsDataURL(file);
-
-  //     reader.onload = () => {
-
-  //       this.imageSrc = reader.result as string;
-
-  //       this.myForm.patchValue({
-  //         fileSource: reader.result
-  //       });
-
-  //     };
-
-  //   }
-  // }
-
-  // submit(){
-
-  // }
+  onFileUpload(event:any){
+    this.selecetdFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+    this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(this.selecetdFile);
+    }
   ngOnInit(): void {
   }
 

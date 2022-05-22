@@ -45,7 +45,7 @@ import { EmployeesComponent } from './Components/Employees/Employees.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-  ],
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
