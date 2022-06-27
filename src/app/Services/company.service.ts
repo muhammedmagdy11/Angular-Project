@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 // const options={headers:new HttpHeaders({
 //   authorization:"Bearer "+sessionStorage.getItem('token')
 // })}
@@ -12,7 +13,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CompanyService {
-url:string='http://localhost:30411/api/companies';
+url:string= environment.apiUrl +'/api/companies';
   constructor(private _http:HttpClient) {
 
    }
